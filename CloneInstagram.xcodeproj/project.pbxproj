@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FBC300252C012F1B00DB33DF /* UserStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300242C012F1B00DB33DF /* UserStartView.swift */; };
 		FBED060B2BF3980400DF8ABF /* CloneInstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED060A2BF3980400DF8ABF /* CloneInstagramApp.swift */; };
 		FBED060D2BF3980400DF8ABF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED060C2BF3980400DF8ABF /* ContentView.swift */; };
 		FBED060F2BF3980600DF8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBED060E2BF3980600DF8ABF /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FBC300242C012F1B00DB33DF /* UserStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStartView.swift; sourceTree = "<group>"; };
 		FBED06072BF3980400DF8ABF /* CloneInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBED060A2BF3980400DF8ABF /* CloneInstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneInstagramApp.swift; sourceTree = "<group>"; };
 		FBED060C2BF3980400DF8ABF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FBC300232C012E7D00DB33DF /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				FBC300242C012F1B00DB33DF /* UserStartView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		FBED05FE2BF3980400DF8ABF = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +198,7 @@
 		FBED063A2BF398E800DF8ABF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FBC300232C012E7D00DB33DF /* SubViews */,
 				FBED06422BF3A7EF00DF8ABF /* ProfileView.swift */,
 			);
 			path = Profile;
@@ -360,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBED06432BF3A7EF00DF8ABF /* ProfileView.swift in Sources */,
+				FBC300252C012F1B00DB33DF /* UserStartView.swift in Sources */,
 				FBED060D2BF3980400DF8ABF /* ContentView.swift in Sources */,
 				FBED06412BF39A2000DF8ABF /* MainTabBarView.swift in Sources */,
 				FBED060B2BF3980400DF8ABF /* CloneInstagramApp.swift in Sources */,
