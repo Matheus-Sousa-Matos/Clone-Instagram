@@ -37,13 +37,15 @@ struct ProfileView: View {
                     .padding(.horizontal)
                     
                     VStack{
-                        Text("Cristiano Ronaldo")
+                        Text("Anne Cristina")
                             .font(.footnote)
                             .fontWeight(.semibold)
-                        Text("Description Ronal")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text("Description")
                             .font(.footnote)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                     
                     HStack {
@@ -103,9 +105,18 @@ struct ProfileView: View {
                     }
                 }
             }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        
+                    } label: {
+                        Text("anne_cristiana")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         
