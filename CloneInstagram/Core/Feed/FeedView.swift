@@ -30,9 +30,9 @@ struct FeedView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Instagram")
-                        .font(.title2)
-                        .frame(width: 100, height: 32)
+                    Image("instagram_logo_black")
+                        .resizable()
+                        .frame(width: 100, height: 50)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
