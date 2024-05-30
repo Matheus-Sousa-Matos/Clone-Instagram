@@ -16,11 +16,18 @@ class UploadPostViewModel: ObservableObject {
         didSet {Task { await loadImage(fromItem: selectedImage) }}
     }
     @Published var postImage: Image?
+    @Published var caption: String = ""
     
     func loadImage(fromItem item: PhotosPickerItem?) async {
         guard let item = item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { return }
         guard let uiImage = UIImage(data: data) else { return } 
         postImage = Image(uiImage: uiImage)
+    }
+    
+    func clearData() {
+        caption = ""
+        selectedImage = nil
+        postImage = nil
     }
 }

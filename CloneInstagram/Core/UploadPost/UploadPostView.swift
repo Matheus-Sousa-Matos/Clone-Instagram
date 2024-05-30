@@ -19,9 +19,7 @@ struct UploadPostView: View {
             // action tool bar
             HStack {
                 Button {
-                    caption = ""
-                    viewModel.selectedImage = nil
-                    viewModel.postImage = nil
+                    viewModel.clearData()
                     tabIndex = 0
                 } label: {
                     Image(systemName: "chevron.backward")
@@ -47,7 +45,7 @@ struct UploadPostView: View {
                         .cornerRadius(18)
                         .clipped()
                 }
-                TextField("Write a caption or add a poll..", text: $caption, axis: .vertical)
+                TextField("Write a caption or add a poll..", text: $viewModel.caption, axis: .vertical)
             }
             .padding()
             
