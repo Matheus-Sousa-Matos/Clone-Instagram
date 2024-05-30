@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct ProfileView: View {
-    private let gridItems: [GridItem] = [
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1),
-        .init(.flexible(), spacing: 1)
-    ]
+struct CurrentUserProfileView: View {
+    
+    let user: User
+    
+    var posts: [Post] {
+        return Post.MOCK_POSTS.filter({$0.user?.username == user.username})
+    }
     
     var body: some View {
         NavigationStack {
@@ -97,13 +98,7 @@ struct ProfileView: View {
                     Divider()
                 }
                 
-                LazyVGrid(columns: gridItems, spacing: 1) {
-                    ForEach(0...15, id: \.self) { index in
-                        Image("profile_placeholder_image")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                }
+                PostGridView(posts: posts)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -139,8 +134,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct CurrentUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        CurrentUserProfileView(user: User.MOCK_USERS[0])
     }
 }

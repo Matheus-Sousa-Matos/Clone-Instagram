@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     @State private var email: String = ""
-    @State private var fullName: String = ""
+    @State private var fullname: String = ""
     @State private var username: String = ""
     @State private var password: String = ""
     
@@ -62,7 +62,7 @@ struct RegisterView: View {
             
             Group {
                 TextField("Phone number, email or username", text: $email)
-                TextField("Full name", text: $fullName)
+                TextField("Full name", text: $fullname)
                 TextField("Username", text: $username)
                 SecureField(text: $password) {
                     Text("Password")

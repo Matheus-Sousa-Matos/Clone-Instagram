@@ -9,10 +9,8 @@ import SwiftUI
 
 struct FeedView: View {
     var body: some View {
-        
         NavigationStack {
             ScrollView {
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
                         ForEach(0 ... 10, id: \.self) { post in       
@@ -23,8 +21,8 @@ struct FeedView: View {
                 .padding(8)
                 
                 LazyVStack(spacing: 32) {
-                    ForEach(0 ... 10, id: \.self) { post in
-                        FeedCell()
+                    ForEach(Post.MOCK_POSTS) { post in
+                        FeedCell(post: post)
                     }
                 }
             }
