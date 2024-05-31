@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var login: String = ""
-    @State private var password: String = ""
     @State private var showPassword: Bool = false
+    @StateObject var loginViewModel = LoginViewModel()
+    @StateObject var registrationViewModel = RegistrationViewModel()
 
     var body: some View {
         NavigationStack {
@@ -22,8 +22,9 @@ struct LoginView: View {
                     .frame(width: 220, height: 120)
                 
                 VStack {
-                    TextField("Phone number, email or username", text: $login)
+                    TextField("Phone number, email or username", text: $loginViewModel.email)
                         .font(.subheadline)
+                        .autocapitalization(.none)
                         .padding(12)
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
@@ -31,10 +32,10 @@ struct LoginView: View {
                     
                     HStack {
                         if showPassword {
-                            TextField("Password", text: $password)
+                            TextField("Password", text: $loginViewModel.password)
                                 .font(.subheadline)
                         } else {
-                            SecureField("Password", text: $password)
+                            SecureField("Password", text: $loginViewModel.password)
                                 .font(.subheadline)
                         }
                         Button {
@@ -46,6 +47,7 @@ struct LoginView: View {
                     }
                     .padding(12)
                     .cornerRadius(8)
+                    .autocapitalization(.none)
                     .background(
                         Rectangle()
                             .fill(Color(.systemGray6))
@@ -68,7 +70,7 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 Button {
-                    
+                    Task { try await loginViewModel.sigIn() }
                 } label: {
                     Text("Login")
                         .font(.subheadline)
@@ -112,7 +114,8 @@ struct LoginView: View {
                 Divider()
                 
                 NavigationLink {
-                    RegisterView()
+                    RegistrationView()
+                        .environmentObject(registrationViewModel)
                 } label: {
                     HStack(spacing: 3) {
                         Text("Don't have an account?")

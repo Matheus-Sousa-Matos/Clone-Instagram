@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
+@MainActor
 class ContentViewModel: ObservableObject {
     
     private let service = AuthService.shared
@@ -21,10 +22,12 @@ class ContentViewModel: ObservableObject {
     }
     
     func setupSubscribers() {
-        service.$userSession.sink { [weak self] userSession in
-            self?.userSession = userSession
-        }
-        .store(in: &cancellables)
+        service.$userSession
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] userSession in
+                self?.userSession = userSession
+            }
+            .store(in: &cancellables)
     }
     
 }

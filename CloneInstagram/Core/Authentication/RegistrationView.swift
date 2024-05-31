@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  RegistrationView.swift
 //  CloneInstagram
 //
 //  Created by Matheus de Sousa Matos on 27/05/24.
@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct RegisterView: View {
+struct RegistrationView: View {
+    @EnvironmentObject var viewModel: RegistrationViewModel
+    @Environment(\.dismiss) var dismiss
+    
     @State private var email: String = ""
     @State private var fullname: String = ""
     @State private var username: String = ""
@@ -61,18 +64,20 @@ struct RegisterView: View {
             .padding(.vertical)
             
             Group {
-                TextField("Phone number, email or username", text: $email)
-                TextField("Full name", text: $fullname)
-                TextField("Username", text: $username)
-                SecureField(text: $password) {
+                TextField("Email", text: $viewModel.email)
+                TextField("Full name", text: $viewModel.fullname)
+                TextField("Username", text: $viewModel.username)
+                SecureField(text: $viewModel.password) {
                     Text("Password")
                 }
             }
             .font(.subheadline)
+            .autocapitalization(.none)
             .padding(12)
             .background(Color(.systemGray6))
             .cornerRadius(8)
             .padding(.horizontal, 24)
+            
             
             Spacer()
             
@@ -96,7 +101,7 @@ struct RegisterView: View {
             
             
             Button {
-                
+                Task { try await viewModel.createUser() }
             } label: {
                 Text("Sign up")
                     .font(.subheadline)
@@ -110,8 +115,8 @@ struct RegisterView: View {
             
             Divider()
             
-            NavigationLink {
-                LoginView()
+            Button {
+                self.dismiss()
             } label: {
                 HStack(spacing: 3) {
                     Text("Have an account?")
@@ -130,6 +135,7 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegistrationView()
+            .environmentObject(RegistrationViewModel())
     }
 }
