@@ -38,8 +38,7 @@ struct CurrentUserProfileView: View {
                     .padding(.horizontal)
                     
                     VStack{
-                        Text("Anne Cristina")
-                            .font(.footnote)
+                        Text(user.username)
                             .fontWeight(.semibold)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -105,7 +104,7 @@ struct CurrentUserProfileView: View {
                     Button {
                         
                     } label: {
-                        Text("anne_cristiana")
+                        Text(user.username)
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
