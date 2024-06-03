@@ -31,6 +31,13 @@
 		FBC300502C0A432A00DB33DF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3004F2C0A432A00DB33DF /* LoginViewModel.swift */; };
 		FBC300522C0B904E00DB33DF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300512C0B904E00DB33DF /* UserService.swift */; };
 		FBC300542C0B90FF00DB33DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300532C0B90FF00DB33DF /* SearchViewModel.swift */; };
+		FBC300562C0BEFA000DB33DF /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300552C0BEFA000DB33DF /* UserProfileHeaderView.swift */; };
+		FBC300582C0BF23000DB33DF /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300572C0BF23000DB33DF /* EditProfileView.swift */; };
+		FBC3005A2C0BF40A00DB33DF /* EditProfileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300592C0BF40A00DB33DF /* EditProfileRowView.swift */; };
+		FBC3005C2C0BF6F600DB33DF /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3005B2C0BF6F600DB33DF /* EditProfileViewModel.swift */; };
+		FBC3005E2C0E281000DB33DF /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3005D2C0E281000DB33DF /* ImageUploader.swift */; };
+		FBC300612C0E334F00DB33DF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FBC300602C0E334F00DB33DF /* Kingfisher */; };
+		FBC300632C0E38DF00DB33DF /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC300622C0E38DF00DB33DF /* CircularProfileImageView.swift */; };
 		FBED060B2BF3980400DF8ABF /* CloneInstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED060A2BF3980400DF8ABF /* CloneInstagramApp.swift */; };
 		FBED060D2BF3980400DF8ABF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED060C2BF3980400DF8ABF /* ContentView.swift */; };
 		FBED060F2BF3980600DF8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBED060E2BF3980600DF8ABF /* Assets.xcassets */; };
@@ -80,6 +87,12 @@
 		FBC3004F2C0A432A00DB33DF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FBC300512C0B904E00DB33DF /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FBC300532C0B90FF00DB33DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		FBC300552C0BEFA000DB33DF /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
+		FBC300572C0BF23000DB33DF /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		FBC300592C0BF40A00DB33DF /* EditProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRowView.swift; sourceTree = "<group>"; };
+		FBC3005B2C0BF6F600DB33DF /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		FBC3005D2C0E281000DB33DF /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		FBC300622C0E38DF00DB33DF /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		FBED06072BF3980400DF8ABF /* CloneInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBED060A2BF3980400DF8ABF /* CloneInstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloneInstagramApp.swift; sourceTree = "<group>"; };
 		FBED060C2BF3980400DF8ABF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +116,7 @@
 				FBC300482C08F00400DB33DF /* FirebaseStorage in Frameworks */,
 				FBC300442C08F00300DB33DF /* FirebaseFirestore in Frameworks */,
 				FBC300462C08F00300DB33DF /* FirebaseFirestoreSwift in Frameworks */,
+				FBC300612C0E334F00DB33DF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +142,10 @@
 			children = (
 				FBC300242C012F1B00DB33DF /* UserStartView.swift */,
 				FBC300382C075EFB00DB33DF /* PostGridView.swift */,
+				FBC300552C0BEFA000DB33DF /* UserProfileHeaderView.swift */,
+				FBC300572C0BF23000DB33DF /* EditProfileView.swift */,
+				FBC300592C0BF40A00DB33DF /* EditProfileRowView.swift */,
+				FBC300622C0E38DF00DB33DF /* CircularProfileImageView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -197,6 +215,7 @@
 			children = (
 				FBC300492C08F2CD00DB33DF /* AuthService.swift */,
 				FBC300512C0B904E00DB33DF /* UserService.swift */,
+				FBC3005D2C0E281000DB33DF /* ImageUploader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,6 +273,7 @@
 				FBC300232C012E7D00DB33DF /* SubViews */,
 				FBED06422BF3A7EF00DF8ABF /* CurrentUserProfileView.swift */,
 				FBC300342C06AD8700DB33DF /* SearchUserProfileView.swift */,
+				FBC3005B2C0BF6F600DB33DF /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -326,6 +346,7 @@
 				FBC300432C08F00300DB33DF /* FirebaseFirestore */,
 				FBC300452C08F00300DB33DF /* FirebaseFirestoreSwift */,
 				FBC300472C08F00400DB33DF /* FirebaseStorage */,
+				FBC300602C0E334F00DB33DF /* Kingfisher */,
 			);
 			productName = CloneInstagram;
 			productReference = FBED06072BF3980400DF8ABF /* CloneInstagram.app */;
@@ -401,6 +422,7 @@
 			mainGroup = FBED05FE2BF3980400DF8ABF;
 			packageReferences = (
 				FBC300402C08F00300DB33DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FBC3005F2C0E334F00DB33DF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FBED06082BF3980400DF8ABF /* Products */;
 			projectDirPath = "";
@@ -448,9 +470,12 @@
 				FBC300352C06AD8700DB33DF /* SearchUserProfileView.swift in Sources */,
 				FBC300312C04D29B00DB33DF /* RegistrationView.swift in Sources */,
 				FBC300292C0375AA00DB33DF /* FeedCell.swift in Sources */,
+				FBC300562C0BEFA000DB33DF /* UserProfileHeaderView.swift in Sources */,
 				FBC3004A2C08F2CD00DB33DF /* AuthService.swift in Sources */,
+				FBC300632C0E38DF00DB33DF /* CircularProfileImageView.swift in Sources */,
 				FBC3002D2C0396F200DB33DF /* SearchView.swift in Sources */,
 				FBED06432BF3A7EF00DF8ABF /* CurrentUserProfileView.swift in Sources */,
+				FBC3005A2C0BF40A00DB33DF /* EditProfileRowView.swift in Sources */,
 				FBC300522C0B904E00DB33DF /* UserService.swift in Sources */,
 				FBC3003B2C080CF000DB33DF /* UploadPostView.swift in Sources */,
 				FBC300372C07557200DB33DF /* Post.swift in Sources */,
@@ -459,13 +484,16 @@
 				FBC300392C075EFB00DB33DF /* PostGridView.swift in Sources */,
 				FBC3004E2C0A399C00DB33DF /* RegistrationViewModel.swift in Sources */,
 				FBC3003D2C08B15F00DB33DF /* UploadPostViewModel.swift in Sources */,
+				FBC300582C0BF23000DB33DF /* EditProfileView.swift in Sources */,
 				FBC300542C0B90FF00DB33DF /* SearchViewModel.swift in Sources */,
 				FBC3004C2C08F4B400DB33DF /* ContentViewModel.swift in Sources */,
 				FBED06412BF39A2000DF8ABF /* MainTabBarView.swift in Sources */,
 				FBC300272C0375A000DB33DF /* FeedView.swift in Sources */,
+				FBC3005E2C0E281000DB33DF /* ImageUploader.swift in Sources */,
 				FBC300332C06A30400DB33DF /* User.swift in Sources */,
 				FBC3002B2C0383DB00DB33DF /* CarouselStoriesView.swift in Sources */,
 				FBC3002F2C04C6E700DB33DF /* LoginView.swift in Sources */,
+				FBC3005C2C0BF6F600DB33DF /* EditProfileViewModel.swift in Sources */,
 				FBED060B2BF3980400DF8ABF /* CloneInstagramApp.swift in Sources */,
 				FBC300502C0A432A00DB33DF /* LoginViewModel.swift in Sources */,
 			);
@@ -802,6 +830,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		FBC3005F2C0E334F00DB33DF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -824,6 +860,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FBC300402C08F00300DB33DF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FBC300602C0E334F00DB33DF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBC3005F2C0E334F00DB33DF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
