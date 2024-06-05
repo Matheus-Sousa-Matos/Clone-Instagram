@@ -19,9 +19,9 @@ struct UserProfileHeaderView: View {
                 Spacer()
                 
                 HStack(spacing: 8) {
-                    UserStartView(value: 12, title: "Post")
-                    UserStartView(value: 32, title: "Followers")
-                    UserStartView(value: 31, title: "Followings")
+                    UserStartView(value: user.ammountPost, title: "Post")
+                    UserStartView(value: user.ammountFollowers, title: "Followers")
+                    UserStartView(value: user.ammountFollowing, title: "Followings")
                 }
                 
             }

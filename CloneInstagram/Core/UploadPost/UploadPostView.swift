@@ -10,7 +10,7 @@ import PhotosUI
 
 struct UploadPostView: View {
     @State private var imagePickerPresented: Bool = false
-    @StateObject var viewModel: UploadPostViewModel = UploadPostViewModel()
+    @StateObject private var viewModel = UploadPostViewModel()
     @Binding var tabIndex: Int
     
     var body: some View {
@@ -54,9 +54,13 @@ struct UploadPostView: View {
             
             Button {
                 Task {
-                    try await viewModel.uploadPost()
-                    viewModel.clearData()
-                    tabIndex = 0
+                    do {
+                        try await viewModel.uploadPost()
+                        viewModel.clearData()
+                        tabIndex = 0
+                    } catch {
+                      print("Error uploading post: \(error)")
+                    }
                 }
             } label: {
                 Text("Share")

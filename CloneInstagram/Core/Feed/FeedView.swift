@@ -22,9 +22,15 @@ struct FeedView: View {
                 }
                 .padding(8)
                 
-                LazyVStack(spacing: 32) {
-                    ForEach(viewModel.posts) { post in
-                        FeedCell(post: post)
+                if viewModel.isLoading {
+                    ProgressView("Loading posts...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                } else {
+                    LazyVStack(spacing: 32) {
+                        ForEach(viewModel.posts) { post in
+                            FeedCell(post: post)
+                        }
                     }
                 }
             }
@@ -52,6 +58,11 @@ struct FeedView: View {
                             .foregroundColor(.black)
                     }
                 }
+            }
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchPosts()
             }
         }
     }

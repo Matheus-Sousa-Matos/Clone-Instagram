@@ -11,17 +11,22 @@ import Firebase
 @MainActor
 class FeedViewModel: ObservableObject {
     @Published var posts = [Post]()
-    
+    @Published var isLoading = false
+
     init() {
-        Task { await fetchPosts() }
+        Task {
+            await fetchPosts()
+        }
     }
-        
+    
     func fetchPosts() async {
+        isLoading = true
         do {
             self.posts = try await PostService.fetchFeedPosts()
         } catch {
             print("Error fetching posts: \(error)")
             self.posts = []
         }
+        isLoading = false
     }
 }

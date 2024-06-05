@@ -15,12 +15,13 @@ struct PostService {
         do {
             let snapshot = try await postsCollection.getDocuments()
             var posts = try snapshot.documents.compactMap { try $0.data(as: Post.self) }
+            
             for i in 0..<posts.count {
-                let post = posts[i]
-                let ownerUid = post.owenerUid
+                let ownerUid = posts[i].ownerUid
                 let postUser = try await UserService.fetchUser(withUid: ownerUid)
                 posts[i].user = postUser
             }
+            
             return posts
         } catch {
             print("Error fetching posts: \(error)")
@@ -29,7 +30,12 @@ struct PostService {
     }
     
     static func fetchUserPosts(uid: String) async throws -> [Post] {
-        let snapshot = try await postsCollection.whereField("owenerUid", isEqualTo: uid).getDocuments()
-        return try snapshot.documents.compactMap({ try $0.data(as: Post.self ) })
+        do {
+            let snapshot = try await postsCollection.whereField("ownerUid", isEqualTo: uid).getDocuments()
+            return try snapshot.documents.compactMap { try $0.data(as: Post.self) }
+        } catch {
+            print("Error fetching user posts: \(error)")
+            throw error
+        }
     }
 }
