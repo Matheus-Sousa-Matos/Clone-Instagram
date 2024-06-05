@@ -9,7 +9,6 @@ import SwiftUI
 import PhotosUI
 
 struct UploadPostView: View {
-    @State private var caption: String = ""
     @State private var imagePickerPresented: Bool = false
     @StateObject var viewModel: UploadPostViewModel = UploadPostViewModel()
     @Binding var tabIndex: Int
@@ -54,7 +53,11 @@ struct UploadPostView: View {
             Divider()
             
             Button {
-                
+                Task {
+                    try await viewModel.uploadPost()
+                    viewModel.clearData()
+                    tabIndex = 0
+                }
             } label: {
                 Text("Share")
                     .font(.subheadline)

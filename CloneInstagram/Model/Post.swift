@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Post: Identifiable, Codable, Hashable {
     let id: String
@@ -13,7 +14,7 @@ struct Post: Identifiable, Codable, Hashable {
     let captation: String
     var likes: Int
     let imageUrl: String
-    let timestamp: Date
+    let timestamp: Timestamp
     var user: User?
 }
 
@@ -23,70 +24,70 @@ extension Post {
               owenerUid: NSUUID().uuidString,
               captation: "Sunset at the beach and more rock in life", likes: 412,
               imageUrl: "post_mock1",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[0]),
         
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Sunset at the beach", likes: 253,
               imageUrl: "post_mock2",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[1]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Mountain hike adventure", likes: 349,
               imageUrl: "post_mock1",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[1]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Delicious homemade pizza", likes: 187,
               imageUrl: "post_mock2",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[3]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "City lights at night", likes: 532,
               imageUrl: "post_mock1",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[4]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Cozy reading nook", likes: 298,
               imageUrl: "post_mock3",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[5]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Gardening success!", likes: 214,
               imageUrl: "post_mock1",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[4]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Exploring the forest", likes: 421,
               imageUrl: "post_mock2",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[3]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Street art discovery", likes: 372,
               imageUrl: "post_mock3",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[8]),
 
         .init(id: NSUUID().uuidString,
               owenerUid: NSUUID().uuidString,
               captation: "Delicious smoothie bowl", likes: 199,
               imageUrl: "post_mock2",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[2])
     ]
 }
