@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
-    let user: User
+    @EnvironmentObject var viewModel: ProfileViewModel
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                UserProfileHeaderView(user: user)
+                if viewModel.isLoading {
+                    ProgressView("Loading...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                } else {
+                    UserProfileHeaderView()
+                        .environmentObject(viewModel)
+                }
                 
-                PostGridView(user: user)
+                PostGridView(user: viewModel.user)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         
                     } label: {
-                        Text(user.username)
+                        Text(viewModel.user.username)
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
@@ -53,6 +60,7 @@ struct CurrentUserProfileView: View {
 
 struct CurrentUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentUserProfileView(user: User.MOCK_USERS[0])
+        CurrentUserProfileView()
+            .environmentObject(ProfileViewModel(user: User.MOCK_USERS[0]))
     }
 }

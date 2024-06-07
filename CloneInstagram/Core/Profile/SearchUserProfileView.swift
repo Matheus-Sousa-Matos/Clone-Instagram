@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct SearchUserProfileView: View {
-    let user: User
-    
+    @EnvironmentObject var viewModel: ProfileViewModel
+
     var body: some View {
         ScrollView {
-            UserProfileHeaderView(user: user)
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .padding()
+            } else {
+                UserProfileHeaderView()
+                    .environmentObject(viewModel)
+            }
             
-            PostGridView(user: user)
+            PostGridView(user: viewModel.user)
             
-            .navigationTitle(user.username)
+            .navigationTitle(viewModel.user.username)
         }
     }
 }
 
 struct SearchUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchUserProfileView(user: User.MOCK_USERS[5])
+        SearchUserProfileView()
+            .environmentObject(ProfileViewModel(user: User.MOCK_USERS[0]))
     }
 }
 

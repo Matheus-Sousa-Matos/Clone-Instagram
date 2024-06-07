@@ -41,7 +41,8 @@ struct SearchView: View {
                 .padding(.top, 8)
                 .searchable(text: $searchText, prompt: "Search")
                 .navigationDestination(for: User.self) { user in
-                    SearchUserProfileView(user: user)
+                    SearchUserProfileView()
+                        .environmentObject(ProfileViewModel(user: user))
                 }
             }
         }

@@ -41,7 +41,8 @@ struct MainTabBarView: View {
                 .tabItem {
                     Image(systemName: "heart")
                 }.tag(3)
-            CurrentUserProfileView(user: user)
+            CurrentUserProfileView()
+                .environmentObject(ProfileViewModel(user: user))
                 .onAppear {
                     selectedIndex = 4
                 }

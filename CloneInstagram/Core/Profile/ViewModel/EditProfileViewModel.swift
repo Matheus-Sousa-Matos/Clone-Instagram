@@ -22,10 +22,10 @@ class EditProfileViewModel: ObservableObject {
     @Published var bio: String = ""
     
     private var uiImage: UIImage?
-    
+
     init(user: User) {
         self.user = user
-        self.fullname = fullname
+        self.fullname = user.fullname
         
         if let bio = user.bio {
             self.bio = bio
@@ -34,19 +34,36 @@ class EditProfileViewModel: ObservableObject {
     
     func loadImage(fromItem item: PhotosPickerItem?) async {
         guard let item = item else { return }
-        guard let data = try? await item.loadTransferable(type: Data.self) else { return }
-        guard let uiImage = UIImage(data: data) else { return }
-        self.uiImage = uiImage
-        profileImage = Image(uiImage: uiImage)
+        
+        do {
+            guard let data = try await item.loadTransferable(type: Data.self) else {
+                print("Error: No data found.")
+                return
+            }
+            guard let uiImage = UIImage(data: data) else {
+                print("Error: Could not convert data to UIImage.")
+                return
+            }
+            self.uiImage = uiImage
+            profileImage = Image(uiImage: uiImage)
+        } catch {
+            print("Error loading image: \(error.localizedDescription)")
+        }
     }
     
     func updateUserData() async throws {
-        
         var data = [String: Any]()
         
         if let uiImage = uiImage {
-            let imageUrl = try? await ImageUploader.uploadImage(image: uiImage)
-            data["profileImageUrl"] = imageUrl
+            do {
+                if let imageUrl = try await ImageUploader.uploadImage(image: uiImage) {
+                    data["profileImageUrl"] = imageUrl
+                } else {
+                    print("Error: Image upload failed.")
+                }
+            } catch {
+                print("Error uploading image: \(error.localizedDescription)")
+            }
         }
         
         if !fullname.isEmpty && user.fullname != fullname {
@@ -60,7 +77,6 @@ class EditProfileViewModel: ObservableObject {
         if !data.isEmpty {
             try await Firestore.firestore().collection("users").document(user.id).updateData(data)
         }
-        
     }
     
     func clearData() {
