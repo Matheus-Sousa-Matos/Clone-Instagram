@@ -13,18 +13,16 @@ struct SearchUserProfileView: View {
     var body: some View {
         ScrollView {
             if viewModel.isLoading {
-                ProgressView("Loading...")
+                ProgressView("Loading")
                     .progressViewStyle(CircularProgressViewStyle())
                     .padding()
             } else {
                 UserProfileHeaderView()
                     .environmentObject(viewModel)
+                PostGridView(user: viewModel.user)
             }
-            
-            PostGridView(user: viewModel.user)
-            
-            .navigationTitle(viewModel.user.username)
         }
+        .navigationTitle(viewModel.user.username)
         .onAppear {
             Task { await viewModel.fetchUser() }
         }

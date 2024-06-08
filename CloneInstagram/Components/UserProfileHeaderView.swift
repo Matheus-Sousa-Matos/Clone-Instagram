@@ -22,7 +22,6 @@ struct UserProfileHeaderView: View {
                     UserStartView(value: viewModel.user.ammountFollowers, title: "Followers")
                     UserStartView(value: viewModel.user.ammountFollowing, title: "Followings")
                 }
-                
             }
             .padding(.horizontal, 32)
             

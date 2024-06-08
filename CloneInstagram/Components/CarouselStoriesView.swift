@@ -13,8 +13,8 @@ struct CarouselStoriesView: View {
     
     var body: some View {
         VStack {
-            if let imageUrl = user.profileImageUrl {
-                KFImage(URL(string: imageUrl))
+            if !user.profileImageUrl.isEmpty {
+                KFImage(URL(string: user.profileImageUrl))
                     .resizable()
                     .frame(width: 90, height: 90)
                     .scaledToFill()

@@ -33,8 +33,8 @@ struct CircularProfileImageView: View {
     let size: ProfileImageSize
     
     var body: some View {
-        if let imageUrl = user.profileImageUrl {
-            KFImage(URL(string: imageUrl))
+        if !user.profileImageUrl.isEmpty {
+            KFImage(URL(string: user.profileImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: size.dimension, height: size.dimension)

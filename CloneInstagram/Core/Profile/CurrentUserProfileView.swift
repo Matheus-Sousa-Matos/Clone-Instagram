@@ -14,15 +14,17 @@ struct CurrentUserProfileView: View {
         NavigationStack {
             ScrollView {
                 if viewModel.isLoading {
-                    ProgressView("Loading...")
+                    ProgressView("Loading")
                         .progressViewStyle(CircularProgressViewStyle())
                         .padding()
                 } else {
                     UserProfileHeaderView()
                         .environmentObject(viewModel)
+                    PostGridView(user: viewModel.user)
                 }
-                
-                PostGridView(user: viewModel.user)
+            }
+            .onAppear {
+                Task { await viewModel.fetchUser() }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -54,9 +56,6 @@ struct CurrentUserProfileView: View {
                     }
                 }
             }
-        }
-        .onAppear {
-            Task { await viewModel.fetchUser() }
         }
     }
 }
