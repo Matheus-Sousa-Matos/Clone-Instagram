@@ -55,6 +55,9 @@ struct CurrentUserProfileView: View {
                 }
             }
         }
+        .onAppear {
+            Task { await viewModel.fetchUser() }
+        }
     }
 }
 

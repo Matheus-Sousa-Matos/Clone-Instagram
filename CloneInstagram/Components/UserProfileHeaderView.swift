@@ -43,24 +43,39 @@ struct UserProfileHeaderView: View {
             .padding(.horizontal, 32)
             
             HStack {
-                Button {
-                    if viewModel.user.isCurrentUser {
-                        viewModel.showEditProfile.toggle()
-                    } else {
-                        
+                if viewModel.user.isCurrentUser {
+                    NavigationLink {
+                        EditProfileView(user: viewModel.user)
+                            .toolbarRole(.editor)
+                    } label: {
+                        Text("Edit Profile")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .frame(width: 160, height: 32)
+                            .background(.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(6)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .stroke(.gray, lineWidth: 1)
+                            }
                     }
-                } label: {
-                    Text(viewModel.user.isCurrentUser ? "Edit Profile" : "Follow")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .frame(width: 160, height: 32)
-                        .background(viewModel.user.isCurrentUser ? .white : .blue)
-                        .foregroundColor(viewModel.user.isCurrentUser ? .black : .white)
-                        .cornerRadius(6)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 6)
-                                .stroke(viewModel.user.isCurrentUser ? .gray : .clear, lineWidth: 1)
-                        }
+                } else {
+                    Button {
+                       
+                    } label: {
+                        Text("Follow")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .frame(width: 160, height: 32)
+                            .background(.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(6)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .stroke(.clear, lineWidth: 1)
+                            }
+                    }
                 }
                 
                 Button {
@@ -97,16 +112,7 @@ struct UserProfileHeaderView: View {
                 }
                 
             }
-     
             Divider()
-        }
-        .fullScreenCover(isPresented: $viewModel.showEditProfile) {
-            EditProfileView(user: viewModel.user)
-                .onDisappear {
-                    Task {
-                        await viewModel.fetchUser()
-                    }
-                }
         }
     }
 }

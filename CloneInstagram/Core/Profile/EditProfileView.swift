@@ -18,32 +18,6 @@ struct EditProfileView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Button("Cancel") {
-                    dissmiss()
-                }
-                
-                Spacer()
-                
-                Text("Edit Profile")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                Button {
-                    Task { try await viewModel.updateUserData() }
-                    dissmiss()
-                } label: {
-                    Text("Done")
-                        .font(.footnote)
-                        .fontWeight(.semibold)
-                }
-            }
-            .padding(.horizontal)
-            
-            Divider()
-            
             PhotosPicker(selection: $viewModel.selectedImage) {
                 VStack {
                     if let image = viewModel.profileImage {
@@ -73,6 +47,20 @@ struct EditProfileView: View {
             
             Spacer()
             
+        }
+        .navigationTitle("Edit Profile")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    Task { try await viewModel.updateUserData() }
+                    dissmiss()
+                } label: {
+                    Text("Done")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                }
+            }
         }
     }
 }

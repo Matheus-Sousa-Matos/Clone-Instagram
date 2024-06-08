@@ -34,12 +34,12 @@ struct MainTabBarView: View {
                 .tabItem {
                     Image(systemName: "plus.square")
                 }.tag(2)
-            Text("Notifications")
+            Text("Reels")
                 .onAppear {
                     selectedIndex = 3
                 }
                 .tabItem {
-                    Image(systemName: "heart")
+                    Image(systemName: "play.rectangle")
                 }.tag(3)
             CurrentUserProfileView()
                 .environmentObject(ProfileViewModel(user: user))

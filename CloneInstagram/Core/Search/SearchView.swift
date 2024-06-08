@@ -43,6 +43,7 @@ struct SearchView: View {
                 .navigationDestination(for: User.self) { user in
                     SearchUserProfileView()
                         .environmentObject(ProfileViewModel(user: user))
+                        .toolbarRole(.editor)
                 }
             }
         }

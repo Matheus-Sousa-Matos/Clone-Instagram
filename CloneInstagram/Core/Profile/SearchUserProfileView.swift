@@ -25,6 +25,9 @@ struct SearchUserProfileView: View {
             
             .navigationTitle(viewModel.user.username)
         }
+        .onAppear {
+            Task { await viewModel.fetchUser() }
+        }
     }
 }
 

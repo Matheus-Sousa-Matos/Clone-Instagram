@@ -3,4 +3,69 @@
    uuid = "66E24F9A-B01D-4233-A900-73B9420722DF"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E92E7811-376A-4BE9-8B82-E8A464D02132"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CloneInstagram/Core/Profile/ViewModel/ProfileViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E92E7811-376A-4BE9-8B82-E8A464D02132 - 654d944e328652eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in CloneInstagram.ProfileViewModel.init(user: CloneInstagram.User) -&gt; CloneInstagram.ProfileViewModel"
+                  moduleName = "CloneInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matheusdesousamatos/Desktop/Xcode%20Projects/CloneInstagram/CloneInstagram/Core/Profile/ViewModel/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "E92E7811-376A-4BE9-8B82-E8A464D02132 - 4d6d681fb9793f4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in CloneInstagram.ProfileViewModel.init(user: CloneInstagram.User) -&gt; CloneInstagram.ProfileViewModel"
+                  moduleName = "CloneInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matheusdesousamatos/Desktop/Xcode%20Projects/CloneInstagram/CloneInstagram/Core/Profile/ViewModel/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "E92E7811-376A-4BE9-8B82-E8A464D02132 - 362da78755133c8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CloneInstagram.ProfileViewModel.init(user: CloneInstagram.User) -&gt; CloneInstagram.ProfileViewModel"
+                  moduleName = "CloneInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matheusdesousamatos/Desktop/Xcode%20Projects/CloneInstagram/CloneInstagram/Core/Profile/ViewModel/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

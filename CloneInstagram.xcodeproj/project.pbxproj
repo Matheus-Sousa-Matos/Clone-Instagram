@@ -145,18 +145,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FBC300232C012E7D00DB33DF /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				FBC300242C012F1B00DB33DF /* UserStartView.swift */,
-				FBC300382C075EFB00DB33DF /* PostGridView.swift */,
-				FBC300552C0BEFA000DB33DF /* UserProfileHeaderView.swift */,
-				FBC300592C0BF40A00DB33DF /* EditProfileRowView.swift */,
-				FBC300622C0E38DF00DB33DF /* CircularProfileImageView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
 		FBC3006A2C11197900DB33DF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +196,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		FBC300722C1496A700DB33DF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FBC300242C012F1B00DB33DF /* UserStartView.swift */,
+				FBC300382C075EFB00DB33DF /* PostGridView.swift */,
+				FBC300552C0BEFA000DB33DF /* UserProfileHeaderView.swift */,
+				FBC300592C0BF40A00DB33DF /* EditProfileRowView.swift */,
+				FBC300622C0E38DF00DB33DF /* CircularProfileImageView.swift */,
+				FBC300282C0375AA00DB33DF /* FeedCell.swift */,
+				FBC3002A2C0383DB00DB33DF /* CarouselStoriesView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		FBED05FE2BF3980400DF8ABF = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +236,7 @@
 				FBED06372BF3988100DF8ABF /* App */,
 				FBED06382BF3988300DF8ABF /* Core */,
 				FBED06362BF3987F00DF8ABF /* Extensions */,
+				FBC300722C1496A700DB33DF /* Components */,
 				FBED06352BF3987C00DF8ABF /* Model */,
 				FBED06342BF3987900DF8ABF /* Services */,
 				FBC3003E2C08EE9600DB33DF /* GoogleService-Info.plist */,
@@ -330,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				FBC3006A2C11197900DB33DF /* ViewModel */,
-				FBC300232C012E7D00DB33DF /* SubViews */,
 				FBED06422BF3A7EF00DF8ABF /* CurrentUserProfileView.swift */,
 				FBC300572C0BF23000DB33DF /* EditProfileView.swift */,
 				FBC300342C06AD8700DB33DF /* SearchUserProfileView.swift */,
@@ -343,8 +345,6 @@
 			children = (
 				FBC3006B2C11199400DB33DF /* ViewModel */,
 				FBC300262C0375A000DB33DF /* FeedView.swift */,
-				FBC300282C0375AA00DB33DF /* FeedCell.swift */,
-				FBC3002A2C0383DB00DB33DF /* CarouselStoriesView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";

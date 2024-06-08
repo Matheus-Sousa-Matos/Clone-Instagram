@@ -13,20 +13,20 @@ struct FeedView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        ForEach(0 ... 10, id: \.self) { post in       
-                            CarouselStoriesView()
-                        }
-                    }
-                }
-                .padding(8)
-                
                 if viewModel.isLoading {
-                    ProgressView("Loading posts...")
+                    ProgressView("Loading...")
                         .progressViewStyle(CircularProgressViewStyle())
                         .padding()
                 } else {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            ForEach(viewModel.usersFollowing) { following in
+                                CarouselStoriesView(user: following)
+                            }
+                        }
+                    }
+                    .padding(8)
+                    
                     LazyVStack(spacing: 32) {
                         ForEach(viewModel.posts) { post in
                             FeedCell(post: post)
@@ -63,6 +63,7 @@ struct FeedView: View {
         .onAppear {
             Task {
                 await viewModel.fetchPosts()
+                await viewModel.fetchFollowings()
             }
         }
     }
