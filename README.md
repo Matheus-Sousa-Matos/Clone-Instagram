@@ -1,4 +1,4 @@
-# ⛅️ Clone Instagram
+# 📱 Clone Instagram
 
 ## 🛠 Tecnologias
 - Swift
